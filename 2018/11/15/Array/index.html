@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="test">
+<meta name="description" content="JavaScript的Array可以包含任意数据类型，并通过索引来访问每个元素。 要取得Array的长度，直接访问length属性： 12var arr = [1, 2, 3.14, &amp;apos;Hello&amp;apos;, null, true];arr.length; // 6 请注意，直接给Array的length赋一个新的值会导致Array大小的变化： 123456var arr = [1,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/Array/index.html">
 <meta property="og:site_name" content="张卫东_个人博客">
-<meta property="og:description" content="test">
+<meta property="og:description" content="JavaScript的Array可以包含任意数据类型，并通过索引来访问每个元素。 要取得Array的长度，直接访问length属性： 12var arr = [1, 2, 3.14, &amp;apos;Hello&amp;apos;, null, true];arr.length; // 6 请注意，直接给Array的length赋一个新的值会导致Array大小的变化： 123456var arr = [1,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-15T06:36:53.717Z">
+<meta property="og:updated_time" content="2018-11-15T06:53:22.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array">
-<meta name="twitter:description" content="test">
+<meta name="twitter:description" content="JavaScript的Array可以包含任意数据类型，并通过索引来访问每个元素。 要取得Array的长度，直接访问length属性： 12var arr = [1, 2, 3.14, &amp;apos;Hello&amp;apos;, null, true];arr.length; // 6 请注意，直接给Array的length赋一个新的值会导致Array大小的变化： 123456var arr = [1,">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -294,8 +294,45 @@
       
         
         
-          <p>test</p>
-
+          <p>JavaScript的<code>Array</code>可以包含任意数据类型，并通过索引来访问每个元素。</p>
+<p>要取得<code>Array</code>的长度，直接访问<code>length</code>属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3.14, &apos;Hello&apos;, null, true];</span><br><span class="line">arr.length; // 6</span><br></pre></td></tr></table></figure>
+<p><em>请注意</em>，直接给<code>Array</code>的<code>length</code>赋一个新的值会导致<code>Array</code>大小的变化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr.length; // 3</span><br><span class="line">arr.length = 6;</span><br><span class="line">arr; // arr变为[1, 2, 3, undefined, undefined, undefined]</span><br><span class="line">arr.length = 2;</span><br><span class="line">arr; // arr变为[1, 2]</span><br></pre></td></tr></table></figure>
+<p><code>Array</code>可以通过索引把对应的元素修改为新的值，因此，对<code>Array</code>的索引进行赋值会直接修改这个<code>Array</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;];</span><br><span class="line">arr[1] = 99;</span><br><span class="line">arr; // arr现在变为[&apos;A&apos;, 99, &apos;C&apos;]</span><br></pre></td></tr></table></figure>
+<p><em>请注意</em>，如果通过索引赋值时，索引超过了范围，同样会引起<code>Array</code>大小的变化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr[5] = &apos;x&apos;;</span><br><span class="line">arr; // arr变为[1, 2, 3, undefined, undefined, &apos;x&apos;]</span><br></pre></td></tr></table></figure>
+<p>大多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错。然而，JavaScript的<code>Array</code>却不会有任何错误。在编写代码时，不建议直接修改<code>Array</code>的大小，访问索引时要确保索引不会越界。</p>
+<h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><p>与String类似，<code>Array</code>也可以通过<code>indexOf()</code>来搜索一个指定的元素的位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [10, 20, &apos;30&apos;, &apos;xyz&apos;];</span><br><span class="line">arr.indexOf(10); // 元素10的索引为0</span><br><span class="line">arr.indexOf(20); // 元素20的索引为1</span><br><span class="line">arr.indexOf(30); // 元素30没有找到，返回-1</span><br><span class="line">arr.indexOf(&apos;30&apos;); // 元素&apos;30&apos;的索引为2</span><br></pre></td></tr></table></figure>
+<p>注意了，数字<code>30</code>和字符串<code>&#39;30&#39;</code>是不同的元素。</p>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><p><code>slice()</code>就是对应String的<code>substring()</code>版本，它截取<code>Array</code>的部分元素，然后返回一个新的<code>Array</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;];</span><br><span class="line">arr.slice(0, 3); // 从索引0开始，到索引3结束，但不包括索引3: [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]</span><br><span class="line">arr.slice(3); // 从索引3开始到结束: [&apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;]</span><br></pre></td></tr></table></figure>
+<p>注意到<code>slice()</code>的起止参数包括开始索引，不包括结束索引。</p>
+<p>如果不给<code>slice()</code>传递任何参数，它就会从头到尾截取所有元素。利用这一点，我们可以很容易地复制一个<code>Array</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;];</span><br><span class="line">var aCopy = arr.slice();</span><br><span class="line">aCopy; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;]</span><br><span class="line">aCopy === arr; // false</span><br></pre></td></tr></table></figure>
+<h3 id="push和pop"><a href="#push和pop" class="headerlink" title="push和pop"></a>push和pop</h3><p><code>push()</code>向<code>Array</code>的末尾添加若干元素，<code>pop()</code>则把<code>Array</code>的最后一个元素删除掉：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2];</span><br><span class="line">arr.push(&apos;A&apos;, &apos;B&apos;); // 返回Array新的长度: 4</span><br><span class="line">arr; // [1, 2, &apos;A&apos;, &apos;B&apos;]</span><br><span class="line">arr.pop(); // pop()返回&apos;B&apos;</span><br><span class="line">arr; // [1, 2, &apos;A&apos;]</span><br><span class="line">arr.pop(); arr.pop(); arr.pop(); // 连续pop 3次</span><br><span class="line">arr; // []</span><br><span class="line">arr.pop(); // 空数组继续pop不会报错，而是返回undefined</span><br><span class="line">arr; // []</span><br></pre></td></tr></table></figure>
+<h3 id="unshift和shift"><a href="#unshift和shift" class="headerlink" title="unshift和shift"></a>unshift和shift</h3><p>如果要往<code>Array</code>的头部添加若干元素，使用<code>unshift()</code>方法，<code>shift()</code>方法则把<code>Array</code>的第一个元素删掉：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2];</span><br><span class="line">arr.unshift(&apos;A&apos;, &apos;B&apos;); // 返回Array新的长度: 4</span><br><span class="line">arr; // [&apos;A&apos;, &apos;B&apos;, 1, 2]</span><br><span class="line">arr.shift(); // &apos;A&apos;</span><br><span class="line">arr; // [&apos;B&apos;, 1, 2]</span><br><span class="line">arr.shift(); arr.shift(); arr.shift(); // 连续shift 3次</span><br><span class="line">arr; // []</span><br><span class="line">arr.shift(); // 空数组继续shift不会报错，而是返回undefined</span><br><span class="line">arr; // []</span><br></pre></td></tr></table></figure>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><p><code>sort()</code>可以对当前<code>Array</code>进行排序，它会直接修改当前<code>Array</code>的元素位置，直接调用时，按照默认顺序排序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;B&apos;, &apos;C&apos;, &apos;A&apos;];</span><br><span class="line">arr.sort();</span><br><span class="line">arr; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]</span><br></pre></td></tr></table></figure>
+<p>能否按照我们自己指定的顺序排序呢？完全可以，我们将在后面的函数中讲到。</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h3><p><code>reverse()</code>把整个<code>Array</code>的元素给掉个个，也就是反转：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;];</span><br><span class="line">arr.reverse(); </span><br><span class="line">arr; // [&apos;three&apos;, &apos;two&apos;, &apos;one&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><p><code>splice()</code>方法是修改<code>Array</code>的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;Microsoft&apos;, &apos;Apple&apos;, &apos;Yahoo&apos;, &apos;AOL&apos;, &apos;Excite&apos;, &apos;Oracle&apos;];</span><br><span class="line">// 从索引2开始删除3个元素,然后再添加两个元素:</span><br><span class="line">arr.splice(2, 3, &apos;Google&apos;, &apos;Facebook&apos;); // 返回删除的元素 [&apos;Yahoo&apos;, &apos;AOL&apos;, &apos;Excite&apos;]</span><br><span class="line">arr; // [&apos;Microsoft&apos;, &apos;Apple&apos;, &apos;Google&apos;, &apos;Facebook&apos;, &apos;Oracle&apos;]</span><br><span class="line">// 只删除,不添加:</span><br><span class="line">arr.splice(2, 2); // [&apos;Google&apos;, &apos;Facebook&apos;]</span><br><span class="line">arr; // [&apos;Microsoft&apos;, &apos;Apple&apos;, &apos;Oracle&apos;]</span><br><span class="line">// 只添加,不删除:</span><br><span class="line">arr.splice(2, 0, &apos;Google&apos;, &apos;Facebook&apos;); // 返回[],因为没有删除任何元素</span><br><span class="line">arr; // [&apos;Microsoft&apos;, &apos;Apple&apos;, &apos;Google&apos;, &apos;Facebook&apos;, &apos;Oracle&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><p><code>concat()</code>方法把当前的<code>Array</code>和另一个<code>Array</code>连接起来，并返回一个新的<code>Array</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;];</span><br><span class="line">var added = arr.concat([1, 2, 3]);</span><br><span class="line">added; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, 1, 2, 3]</span><br><span class="line">arr; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]</span><br></pre></td></tr></table></figure>
+<p><em>请注意</em>，<code>concat()</code>方法并没有修改当前<code>Array</code>，而是返回了一个新的<code>Array</code>。</p>
+<p>实际上，<code>concat()</code>方法可以接收任意个元素和<code>Array</code>，并且自动把<code>Array</code>拆开，然后全部添加到新的<code>Array</code>里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;];</span><br><span class="line">arr.concat(1, 2, [3, 4]); // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, 1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p><code>join()</code>方法是一个非常实用的方法，它把当前<code>Array</code>的每个元素都用指定的字符串连接起来，然后返回连接后的字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, 1, 2, 3];</span><br><span class="line">arr.join(&apos;-&apos;); // &apos;A-B-C-1-2-3&apos;</span><br></pre></td></tr></table></figure>
+<p>如果<code>Array</code>的元素不是字符串，将自动转换为字符串后再连接。</p>
+<h3 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h3><p>如果数组的某个元素又是一个<code>Array</code>，则可以形成多维数组，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = [[1, 2, 3], [400, 500, 600], &apos;-&apos;];f000</span><br></pre></td></tr></table></figure>
         
       
     </div>
@@ -307,7 +344,7 @@
         <p><span>本文标题:</span><a href="/2018/11/15/Array/">Array</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">张卫东</a></p>
         <p><span>发布时间:</span>2018-11-15, 14:36:10</p>
-        <p><span>最后更新:</span>2018-11-15, 14:36:53</p>
+        <p><span>最后更新:</span>2018-11-15, 14:53:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/11/15/Array/" title="Array">http://yoursite.com/2018/11/15/Array/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/15/Array/　　作者: 张卫东" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -337,7 +374,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf"><span class="toc-number">1.</span> <span class="toc-text">indexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slice"><span class="toc-number">2.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push和pop"><span class="toc-number">3.</span> <span class="toc-text">push和pop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unshift和shift"><span class="toc-number">4.</span> <span class="toc-text">unshift和shift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">5.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse"><span class="toc-number">6.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#splice"><span class="toc-number">7.</span> <span class="toc-text">splice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-number">8.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">9.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多维数组"><span class="toc-number">10.</span> <span class="toc-text">多维数组</span></a></li></ol>
         
     </div>
     <style>
